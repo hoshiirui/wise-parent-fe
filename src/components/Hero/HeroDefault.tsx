@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 const HeroDefault = () => {
   return (
     <>
-      <Navbar theme="dark" selected="about" />
+      <Navbar theme="dark" selected="home" />
 
       <div className="relative h-screen">
         <img

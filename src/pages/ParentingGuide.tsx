@@ -74,7 +74,7 @@ const ParentingGuide = () => {
   return (
     <>
       <Navbar theme="light" selected="parenting" />
-      <div className="overflow-hidden bg-white mt-[60px]">
+      <div className="overflow-hidden bg-white mt-[40px]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="my-16 mx-6">
             <div className="grid lg:grid-cols-12 gap-12">

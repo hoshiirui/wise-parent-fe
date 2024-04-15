@@ -69,7 +69,7 @@ export default function Navbar({ theme, selected }: NavbarProps) {
                 href={item.href}
                 className={`text-md font-semibold leading-6 pb-[2px] ${themeClasses} ${
                   item.selected
-                    ? `opacity-100 border-b-2 border-white ${underlineClasses}`
+                    ? `opacity-100 border-b-2 ${underlineClasses}`
                     : "opacity-70"
                 } hover:opacity-100`}
               >

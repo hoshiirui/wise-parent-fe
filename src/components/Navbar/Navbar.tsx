@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import NavbarProfile from "./NavbarProfile";
 
 interface NavbarProps {
   theme: "dark" | "light";
@@ -26,7 +27,13 @@ export default function Navbar({ theme, selected }: NavbarProps) {
       selected: selected === "about" ? true : false,
     },
   ];
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setProfileOpen(!profileOpen);
+  };
 
   const themeClasses = theme === "dark" ? "text-white" : "text-gray-900";
   const underlineClasses =
@@ -38,7 +45,7 @@ export default function Navbar({ theme, selected }: NavbarProps) {
 
   return (
     <div className={`bg-${theme === "dark" ? "gray-900" : "white"}`}>
-      <header className="absolute px-[16px] lg:px-[20px] inset-x-0 top-0 z-50">
+      <header className="absolute px-[16px] lg:px-[20px] inset-x-0 top-0 z-50 mx-auto max-w-7xl">
         <nav
           className={`flex items-center justify-between py-6 px-2 lg:px-8 ${themeClasses}`}
           aria-label="Global"
@@ -79,12 +86,21 @@ export default function Navbar({ theme, selected }: NavbarProps) {
           </div>
           {/* Login Button */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a
-              href="#"
-              className={`text-sm font-semibold leading-6 ${themeClasses}`}
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            {localStorage.getItem("user") !== null ? (
+              <NavbarProfile
+                isOpen={profileOpen}
+                toggleDropdown={toggleDropdown}
+                user={localStorage.getItem("user")}
+                theme={theme}
+              />
+            ) : (
+              <a
+                href="/login"
+                className={`-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 ${themeClasses}`}
+              >
+                Log in
+              </a>
+            )}
           </div>
         </nav>
         {/* Mobile Menu Dialog */}
@@ -130,12 +146,21 @@ export default function Navbar({ theme, selected }: NavbarProps) {
                 </div>
                 {/* Login Button */}
                 <div className="py-6">
-                  <a
-                    href="#"
-                    className={`-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 ${themeClasses}`}
-                  >
-                    Log in
-                  </a>
+                  {localStorage.getItem("user") !== null ? (
+                    <NavbarProfile
+                      isOpen={profileOpen}
+                      toggleDropdown={toggleDropdown}
+                      user={localStorage.getItem("user")}
+                      theme={theme}
+                    />
+                  ) : (
+                    <a
+                      href="/login"
+                      className={`-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 ${themeClasses}`}
+                    >
+                      Log in
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

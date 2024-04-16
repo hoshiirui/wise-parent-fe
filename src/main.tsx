@@ -7,6 +7,7 @@ import ParentingGuide from "./pages/ParentingGuide.tsx";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import ArticleDetails from "./pages/ArticleDetails.tsx";
+import AboutUs from "./pages/AboutUs.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/parenting" element={<ParentingGuide />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/parenting/article/:slug" element={<ArticleDetails />} />
       </Routes>
     </BrowserRouter>

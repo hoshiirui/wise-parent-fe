@@ -579,7 +579,7 @@ const ArticleDetails = () => {
                         - Screen Time All the Time
                       </li>
                       <li className="text-lg mb-2 text-gray-700">
-                        - Menjadikan Teknologi sebagai Penenang Anak
+                        - Making Technology a Soother for Children
                       </li>
                       <li className="text-lg mb-2 text-gray-700">
                         - Not Handling Appropriately when Children Make Mistakes

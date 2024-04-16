@@ -106,29 +106,28 @@ const ParentingGuide = () => {
                   </p>
                   <div className="grid lg:grid-cols-3 gap-8">
                     {data.map((item, index) => (
-                      <div
-                        className="col-span-1 flex flex-col gap-4"
-                        key={index}
-                      >
-                        <img
-                          className="w-full rounded-lg mb-2"
-                          src={`/img/${item.imgTitle}`}
-                          alt="Wise Parent Hero"
-                        />
-                        <div className="flex flex-row gap-2">
-                          {item.category.map((tags, index) => (
-                            <p
-                              key={index}
-                              className="text-xs px-2 py-1 bg-secondary600 text-white rounded-lg"
-                            >
-                              {tags}
-                            </p>
-                          ))}
-                        </div>
-                        <p className="font-bold text-xl">{item.title}</p>
+                      <a href={`parenting/article/${item.slug}`} key={index}>
+                        <div className="col-span-1 flex flex-col gap-4">
+                          <img
+                            className="w-full rounded-lg mb-2"
+                            src={`/img/${item.imgTitle}`}
+                            alt="Wise Parent Hero"
+                          />
+                          <div className="flex flex-row gap-2">
+                            {item.category.map((tags, index) => (
+                              <p
+                                key={index}
+                                className="text-xs px-2 py-1 bg-secondary600 text-white rounded-lg"
+                              >
+                                {tags}
+                              </p>
+                            ))}
+                          </div>
+                          <p className="font-bold text-xl">{item.title}</p>
 
-                        <p className="text-sm">{item.timestamp}</p>
-                      </div>
+                          <p className="text-sm">{item.timestamp}</p>
+                        </div>
+                      </a>
                     ))}
                   </div>
                 </div>

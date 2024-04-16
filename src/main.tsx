@@ -9,6 +9,7 @@ import Register from "./pages/Register.tsx";
 import ArticleDetails from "./pages/ArticleDetails.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
 import Courses from "./pages/Courses.tsx";
+import CourseDetails from "./pages/CourseDetails.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/about" element={<AboutUs />} />
         <Route path="/course" element={<Courses />} />
         <Route path="/parenting/article/:slug" element={<ArticleDetails />} />
+        <Route path="/course/:slug" element={<CourseDetails />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

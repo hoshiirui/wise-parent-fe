@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -18,6 +18,14 @@ export default function Login() {
     // Redirect user to "/"
     navigate("/");
   };
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <>
       <div className="grid lg:grid-cols-12 min-h-full">

@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
 
@@ -10,6 +9,8 @@ const ParentingGuide = () => {
         "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
       timestamp: "3 Minutes Ago - Wise Parent Admin",
       imgTitle: "mock.jpg",
+      category: ["Parenting"],
+      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
     },
     {
       title: "Mas Krisbu Masak Sambil Masuk",
@@ -17,6 +18,8 @@ const ParentingGuide = () => {
         "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
       timestamp: "60 Minutes Ago - Wise Parent Admin",
       imgTitle: "mock.jpg",
+      category: ["Parenting"],
+      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
     },
     {
       title: "Mas Krisbu Masak Sambil Masuk",
@@ -24,50 +27,25 @@ const ParentingGuide = () => {
         "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
       timestamp: "90 Minutes Ago - Wise Parent Admin",
       imgTitle: "mock.jpg",
-    },
-    {
-      title: "Mas Krisbu Masak Sambil Masuk",
-      description:
-        "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
-      timestamp: "90 Minutes Ago - Wise Parent Admin",
-      imgTitle: "mock.jpg",
+      category: ["Parenting", "Stimulasi"],
+      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
     },
     // Add more objects as needed
   ];
 
   const tags = [
     {
-      title: "Krisbu",
-      href: "krisbu",
+      title: "Parenting",
+      href: "parenting",
     },
     {
-      title: "Krisbu",
-      href: "krisbu",
-    },
-
-    {
-      title: "Krisbu",
-      href: "krisbu",
+      title: "Stimulasi",
+      href: "stimulasi",
     },
 
     {
-      title: "Krisbu",
-      href: "krisbu",
-    },
-
-    {
-      title: "Krisbu",
-      href: "krisbu",
-    },
-
-    {
-      title: "Krisbu",
-      href: "krisbu",
-    },
-
-    {
-      title: "Krisbu",
-      href: "krisbu",
+      title: "Nutrisi",
+      href: "nutrisi",
     },
   ];
 
@@ -91,21 +69,33 @@ const ParentingGuide = () => {
                   </p>
                   <div className="flex flex-col gap-8">
                     {data.map((item, index) => (
-                      <div className="grid lg:grid-cols-3 gap-8" key={index}>
-                        <img
-                          className="w-full h-full col-span-1 rounded-lg"
-                          src={`/img/${item.imgTitle}`}
-                          alt="Wise Parent Hero"
-                        />
+                      <a href={`parenting/article/${item.slug}`} key={index}>
+                        <div className="grid lg:grid-cols-3 gap-8">
+                          <img
+                            className="w-full h-full col-span-1 rounded-lg"
+                            src={`/img/${item.imgTitle}`}
+                            alt="Wise Parent Hero"
+                          />
 
-                        <div className="flex flex-col col-span-2 gap-4">
-                          <p className="font-bold text-2xl">{item.title}</p>
-                          <p className="text-sm text-gray-500">
-                            {item.description}
-                          </p>
-                          <p className="text-sm">{item.timestamp}</p>
+                          <div className="flex flex-col col-span-2 gap-4">
+                            <div className="flex flex-row gap-2">
+                              {item.category.map((tags, index) => (
+                                <p
+                                  key={index}
+                                  className="text-sm px-2 py-1 bg-secondary600 text-white rounded-lg"
+                                >
+                                  {tags}
+                                </p>
+                              ))}
+                            </div>
+                            <p className="font-bold text-2xl">{item.title}</p>
+                            <p className="text-sm text-gray-500">
+                              {item.description}
+                            </p>
+                            <p className="text-sm">{item.timestamp}</p>
+                          </div>
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -121,10 +111,20 @@ const ParentingGuide = () => {
                         key={index}
                       >
                         <img
-                          className="w-full rounded-lg"
+                          className="w-full rounded-lg mb-2"
                           src={`/img/${item.imgTitle}`}
                           alt="Wise Parent Hero"
                         />
+                        <div className="flex flex-row gap-2">
+                          {item.category.map((tags, index) => (
+                            <p
+                              key={index}
+                              className="text-xs px-2 py-1 bg-secondary600 text-white rounded-lg"
+                            >
+                              {tags}
+                            </p>
+                          ))}
+                        </div>
                         <p className="font-bold text-xl">{item.title}</p>
 
                         <p className="text-sm">{item.timestamp}</p>

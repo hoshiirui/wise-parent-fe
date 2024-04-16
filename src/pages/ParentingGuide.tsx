@@ -4,31 +4,31 @@ import { Footer } from "../components/Footer/Footer";
 const ParentingGuide = () => {
   const data = [
     {
-      title: "Mas Krisbu Melakukan Crossdress di Plaza Renon",
+      title: "Manfaat Susu untuk Perkembangan Otak Anak",
       description:
-        "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
+        "Memiliki anak cerdas adalah harapan semua Bunda. Perkembangan otak Si Buah Hati tidak muncul begitu saja, ini dimulai sejak kandungan dan terus berkembang hingga masa kanak-kanak. Bunda mungkin juga telah mengkonsumsi susu untuk perkembangan otak anak  sejak mengandung.",
       timestamp: "3 Minutes Ago - Wise Parent Admin",
-      imgTitle: "mock.jpg",
-      category: ["Parenting"],
-      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
+      imgTitle: "nutrisi.png",
+      category: ["Nutrisi"],
+      slug: "manfaat-susu-untuk-perkembangan-otak-anak",
     },
     {
-      title: "Mas Krisbu Masak Sambil Masuk",
+      title: "Cara Efektif Mendidik Anak Agar Pintar dan Cerdas",
       description:
-        "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
+        "Anak yang pintar dianggap dapat lebih berprestasi di sekolah dan meraih kesuksesan dalam kehidupan. Karenanya, tidak jarang orang tua bersedia melakukan apapun agar anak lebih pintar, seperti mendaftarkan anak di program les/kursus.",
       timestamp: "60 Minutes Ago - Wise Parent Admin",
-      imgTitle: "mock.jpg",
-      category: ["Parenting"],
-      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
+      imgTitle: "stimulasi.png",
+      category: ["Stimulasi"],
+      slug: "cara-efektif-mendidik-anak-agar-pintar-dan-cerdas",
     },
     {
-      title: "Mas Krisbu Masak Sambil Masuk",
+      title: "Cara Mendukung Potensi Anak di Era Digital",
       description:
-        "With practical guidance and a deep understanding of children's needs, you will discover ways to form strong relationships and achieve happiness together in the journey of raising children.",
+        "Kemajuan teknologi di era digital memberi banyak manfaat dalam kehidupan manusia, seperti memudahkan komunikasi, mencari informasi, hingga membantu proses belajar.",
       timestamp: "90 Minutes Ago - Wise Parent Admin",
-      imgTitle: "mock.jpg",
+      imgTitle: "parenting.png",
       category: ["Parenting", "Stimulasi"],
-      slug: "mas-krisbu-melakukan-crossdress-di-plaza-renon",
+      slug: "cara-mendukung-potensi-anak-di-era-digital",
     },
     // Add more objects as needed
   ];

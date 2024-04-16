@@ -4,31 +4,31 @@ import { Footer } from "../components/Footer/Footer";
 const ParentingGuide = () => {
   const data = [
     {
-      title: "Manfaat Susu untuk Perkembangan Otak Anak",
+      title: "Benefits of Milk for Children's Brain Development",
       description:
-        "Memiliki anak cerdas adalah harapan semua Bunda. Perkembangan otak Si Buah Hati tidak muncul begitu saja, ini dimulai sejak kandungan dan terus berkembang hingga masa kanak-kanak. Bunda mungkin juga telah mengkonsumsi susu untuk perkembangan otak anak  sejak mengandung.",
+        "Having intelligent children is the hope of all mothers. The development of a baby's brain does not just appear, it starts in the womb and continues to develop until childhood. Mothers may also have consumed milk for the development of their child's brain since pregnancy.",
       timestamp: "3 Minutes Ago - Wise Parent Admin",
       imgTitle: "nutrisi.png",
-      category: ["Nutrisi"],
-      slug: "manfaat-susu-untuk-perkembangan-otak-anak",
+      category: ["Nutrition"],
+      slug: "benefits-of-milk-for-childrens-brain-development",
     },
     {
-      title: "Cara Efektif Mendidik Anak Agar Pintar dan Cerdas",
+      title: "Effective Ways to Educate Children to Be Smart and Intelligent",
       description:
-        "Anak yang pintar dianggap dapat lebih berprestasi di sekolah dan meraih kesuksesan dalam kehidupan. Karenanya, tidak jarang orang tua bersedia melakukan apapun agar anak lebih pintar, seperti mendaftarkan anak di program les/kursus.",
+        "Smart children are considered to be able to achieve better in school and achieve success in life. Therefore, it is not uncommon for parents to be willing to do anything to make their children smarter, such as enrolling their children in tutoring/course programs.",
       timestamp: "60 Minutes Ago - Wise Parent Admin",
       imgTitle: "stimulasi.png",
-      category: ["Stimulasi"],
-      slug: "cara-efektif-mendidik-anak-agar-pintar-dan-cerdas",
+      category: ["Stimulation"],
+      slug: "effective-ways-to-educate-children-to-be-smart-and-intelligent",
     },
     {
-      title: "Cara Mendukung Potensi Anak di Era Digital",
+      title: "How to Support Children's Potential in the Digital Era",
       description:
-        "Kemajuan teknologi di era digital memberi banyak manfaat dalam kehidupan manusia, seperti memudahkan komunikasi, mencari informasi, hingga membantu proses belajar.",
+        "Technological advances in the digital era provide many benefits in human life, such as facilitating communication, searching for information, and helping the learning process.",
       timestamp: "90 Minutes Ago - Wise Parent Admin",
       imgTitle: "parenting.png",
-      category: ["Parenting", "Stimulasi"],
-      slug: "cara-mendukung-potensi-anak-di-era-digital",
+      category: ["Parenting", "Stimulation"],
+      slug: "how-to-support-childrens-potential-in-the-digital-era",
     },
     // Add more objects as needed
   ];
@@ -39,13 +39,13 @@ const ParentingGuide = () => {
       href: "parenting",
     },
     {
-      title: "Stimulasi",
-      href: "stimulasi",
+      title: "Stimulation",
+      href: "stimulation",
     },
 
     {
-      title: "Nutrisi",
-      href: "nutrisi",
+      title: "Nutrition",
+      href: "nutrition",
     },
   ];
 

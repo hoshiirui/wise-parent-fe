@@ -1,5 +1,9 @@
 import Navbar from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const ParentingGuide = () => {
   const data = [
@@ -49,6 +53,13 @@ const ParentingGuide = () => {
     },
   ];
 
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index: any, className: any) {
+      return '<span class="' + className + '"></span>';
+    },
+  };
+
   return (
     <>
       <Navbar theme="light" selected="parenting" />
@@ -57,11 +68,48 @@ const ParentingGuide = () => {
           <div className="my-16 mx-6">
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="col-span-9 flex flex-col">
-                <img
-                  className="w-full h-full rounded-xl"
-                  src={`/img/hero-default-1.jpg`}
-                  alt="Wise Parent Hero"
-                />
+                <Swiper
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  loop={true}
+                  autoplay={{ delay: 3000 }}
+                  navigation
+                  pagination={pagination}
+                  modules={[Pagination]}
+                  className="mySwiper w-full"
+                >
+                  {data.map((article, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="relative">
+                        <img
+                          className="rounded-xl"
+                          src={`/img/${article.imgTitle}`}
+                          alt="Wise Parent Hero"
+                        />
+                        <div className="absolute inset-0 bg-black opacity-35"></div>
+                        <div className="absolute bottom-4 left-4 p-4 text-white">
+                          <div className="flex flex-row gap-4">
+                            {article.category.map((cat, index) => (
+                              <p
+                                className="border border-white rounded-md py-1 px-3 text-sm font-semibold"
+                                key={index}
+                              >
+                                {cat}
+                              </p>
+                            ))}
+                          </div>
+
+                          <p className="text-4xl mt-4 font-semibold">
+                            {article.title}
+                          </p>
+                          <p className="mt-4 text-md font-normal">
+                            {article.timestamp}
+                          </p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
                 <div className="w-full border-b border-gray-300 mt-8"></div>
                 <div className="flex flex-col">
                   <p className="text-primary600 text-xl font-bold my-4">

@@ -1,5 +1,3 @@
-import React from "react";
-
 const WhatWeOffer = () => {
   return (
     <div className="overflow-hidden bg-white">

@@ -1,7 +1,4 @@
-import React from "react";
 import Navbar from "../components/Navbar/Navbar";
-import ShortDesc from "../components/Section/ShortDesc";
-import WhatWeOffer from "../components/Section/WhatWeOffer";
 import { Footer } from "../components/Footer/Footer";
 import CourseFeatures from "../components/Section/CourseFeatures";
 

@@ -1,9 +1,7 @@
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Footer } from "../components/Footer/Footer";
-import HeroDefault from "../components/Hero/HeroDefault";
 import Navbar from "../components/Navbar/Navbar";
 import ShortDesc from "../components/Section/ShortDesc";
-import StartReading from "../components/Section/StartReading";
 import WhatWeOffer from "../components/Section/WhatWeOffer";
 
 const AboutUs = () => {

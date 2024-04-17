@@ -81,7 +81,7 @@ const ArticleDetails = () => {
                     </p>
                     <p className="text-lg font-semibold text-gray-500">|</p>
                     <p className="text-lg font-semibold text-gray-500">
-                      Rabu, 27 Desember 2024
+                      Wednesday, March 20 2024
                     </p>
                   </div>
                   <img src="/img/nutrisi.png" alt="artikel" className="mt-4" />
@@ -250,7 +250,7 @@ const ArticleDetails = () => {
                       </p>
                       <p className="text-lg font-semibold text-gray-500">|</p>
                       <p className="text-lg font-semibold text-gray-500">
-                        Rabu, 27 Desember 2024
+                        Wednesday, March 20 2024
                       </p>
                     </div>
                     <img
@@ -473,7 +473,7 @@ const ArticleDetails = () => {
                     </p>
                     <p className="text-lg font-semibold text-gray-500">|</p>
                     <p className="text-lg font-semibold text-gray-500">
-                      Rabu, 27 Desember 2024
+                      Wednesday, March 20 2024
                     </p>
                   </div>
                   <img src="/img/parenting.png" alt="artikel" className="mt-4" />

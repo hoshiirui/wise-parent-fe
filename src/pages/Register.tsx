@@ -143,7 +143,7 @@ export default function Register() {
             <p className="mt-10 text-center text-sm text-gray-600">
               Already a member?{" "}
               <a
-                href="#"
+                href="/login"
                 className="font-semibold leading-6 text-primary600 hover:text-primary700"
               >
                 Login Now

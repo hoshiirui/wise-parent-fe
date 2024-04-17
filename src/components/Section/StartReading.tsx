@@ -1,5 +1,3 @@
-import React from "react";
-
 const StartReading = () => {
   return (
     <div className="overflow-hidden bg-white">

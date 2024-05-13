@@ -22,6 +22,11 @@ export default function Navbar({ theme, selected }: NavbarProps) {
       selected: selected === "course" ? true : false,
     },
     {
+      name: "Schedule",
+      href: "/schedule",
+      selected: selected === "schedule" ? true : false,
+    },
+    {
       name: "About Us",
       href: "/about",
       selected: selected === "about" ? true : false,

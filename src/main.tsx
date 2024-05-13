@@ -10,20 +10,25 @@ import ArticleDetails from "./pages/ArticleDetails.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
 import Courses from "./pages/Courses.tsx";
 import CourseDetails from "./pages/CourseDetails.tsx";
+import Schedule from "./pages/Schedule.tsx";
+import ContextWrapper from "./context/ContextWrapper.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/parenting" element={<ParentingGuide />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/course" element={<Courses />} />
-        <Route path="/parenting/article/:slug" element={<ArticleDetails />} />
-        <Route path="/course/:slug" element={<CourseDetails />} />
-      </Routes>
-    </BrowserRouter>
+    <ContextWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/parenting" element={<ParentingGuide />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/course" element={<Courses />} />
+          <Route path="/parenting/article/:slug" element={<ArticleDetails />} />
+          <Route path="/course/:slug" element={<CourseDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </ContextWrapper>
   </React.StrictMode>
 );

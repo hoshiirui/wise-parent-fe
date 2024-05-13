@@ -115,12 +115,12 @@ const ParentingGuide = () => {
                   <p className="text-primary600 text-xl font-bold my-4">
                     News Feed
                   </p>
-                  <div className="flex flex-col gap-8">
+                  <div className="flex flex-col gap-8 items-center">
                     {data.map((item, index) => (
                       <a href={`parenting/article/${item.slug}`} key={index}>
-                        <div className="grid lg:grid-cols-3 gap-8">
+                        <div className="grid lg:grid-cols-3 gap-8 items-center">
                           <img
-                            className="w-full h-full col-span-1 rounded-lg"
+                            className="col-span-1 rounded-lg bg-cover"
                             src={`/img/${item.imgTitle}`}
                             alt="Wise Parent Hero"
                           />
@@ -148,7 +148,7 @@ const ParentingGuide = () => {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <div className="w-full border-b border-gray-300 mt-8"></div>
+                  <div className="border-b border-gray-300 mt-8"></div>
                   <p className="text-primary600 text-xl font-bold my-4">
                     Recommended For You
                   </p>
@@ -157,7 +157,7 @@ const ParentingGuide = () => {
                       <a href={`parenting/article/${item.slug}`} key={index}>
                         <div className="col-span-1 flex flex-col gap-4">
                           <img
-                            className="w-full rounded-lg mb-2"
+                            className="rounded-lg mb-2"
                             src={`/img/${item.imgTitle}`}
                             alt="Wise Parent Hero"
                           />
@@ -189,7 +189,7 @@ const ParentingGuide = () => {
                   className="border py-2 px-4 border-gray-300 rounded-sm"
                   placeholder="search here"
                 />
-                <div className="w-full border-b border-gray-300 mt-8"></div>
+                <div className="border-b border-gray-300 mt-8"></div>
                 <p className="text-primary600 text-lg font-bold my-4">
                   Categories
                 </p>

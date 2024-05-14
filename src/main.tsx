@@ -12,6 +12,8 @@ import Courses from "./pages/Courses.tsx";
 import CourseDetails from "./pages/CourseDetails.tsx";
 import Schedule from "./pages/Schedule.tsx";
 import ContextWrapper from "./context/ContextWrapper.tsx";
+import KidsZone from "./pages/KidsZone.tsx";
+import ScheduleHome from "./pages/ScheduleHome.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -22,8 +24,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/parenting" element={<ParentingGuide />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/schedule" element={<ScheduleHome />} />
+          <Route path="/schedulespc" element={<Schedule />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/kidszone" element={<KidsZone />} />
           <Route path="/course" element={<Courses />} />
           <Route path="/parenting/article/:slug" element={<ArticleDetails />} />
           <Route path="/course/:slug" element={<CourseDetails />} />

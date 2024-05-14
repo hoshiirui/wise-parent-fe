@@ -7,10 +7,10 @@ const CreateEventButton = () => {
   return (
     <button
       onClick={() => setShowEventModal(true)}
-      className="border p-2 rounded-full flex items-center shadow-md hover:shadow-2xl"
+      className="border p-2 rounded-md flex items-center bg-primary500 text-white hover:bg-primary600"
     >
       <PlusCircleIcon className="w-7 h-7" />
-      <span className="pl-3 pr-7">Create</span>
+      <span className="pl-3 pr-7">New Event</span>
     </button>
   );
 };

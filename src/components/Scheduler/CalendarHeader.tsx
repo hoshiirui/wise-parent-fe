@@ -20,8 +20,7 @@ const CalendarHeader = () => {
   }
   return (
     <header className="px-4 py-2 flex items-center">
-      <img src="/img/laiks.svg" alt="" className="mr-2 w-12 h-12" />
-      <h1 className="mr-10 text-xl text-gray-500 font-bold">Calendar</h1>
+      <h1 className="mr-10 text-xl text-gray-500 font-bold">WiseSchedule</h1>
       <button onClick={handleReset} className="border py-2 px-4 mr-5 rounded">
         Today
       </button>

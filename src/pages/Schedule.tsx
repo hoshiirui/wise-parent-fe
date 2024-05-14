@@ -6,6 +6,7 @@ import CalendarSidebar from "../components/Scheduler/CalendarSidebar";
 import CalendarMonth from "../components/Scheduler/CalendarMonth";
 import GlobalContext from "../context/GlobalContext";
 import EventModal from "../components/Scheduler/EventModal";
+import { Footer } from "../components/Footer/Footer";
 
 const Schedule = () => {
   console.table(getMonth());
@@ -19,18 +20,17 @@ const Schedule = () => {
       <Navbar theme="light" selected="schedule" />
       <div className="overflow-hidden bg-white my-[100px]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="my-16 mx-6">testestse</div>
+          <div className="h-screen flex flex-col">
+            <CalendarHeader />
+            <div className="flex flex-1">
+              <CalendarSidebar />
+              <CalendarMonth month={currentMonth} />
+            </div>
+          </div>
         </div>
       </div>
       {showEventModal && <EventModal />}
-
-      <div className="h-screen flex flex-col">
-        <CalendarHeader />
-        <div className="flex flex-1">
-          <CalendarSidebar />
-          <CalendarMonth month={currentMonth} />
-        </div>
-      </div>
+      <Footer />
     </>
   );
 };

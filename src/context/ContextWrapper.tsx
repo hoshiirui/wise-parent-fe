@@ -29,6 +29,7 @@ const ContextWrapper: React.FC<ContextWrapperProps> = (props) => {
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null);
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
     [],
@@ -57,6 +58,8 @@ const ContextWrapper: React.FC<ContextWrapperProps> = (props) => {
         showEventModal,
         setShowEventModal,
         dispatchCalEvent,
+        selectedEvent,
+        setSelectedEvent,
         savedEvents,
       }}
     >

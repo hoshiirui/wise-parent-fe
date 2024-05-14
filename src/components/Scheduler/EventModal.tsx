@@ -4,6 +4,7 @@ import {
   BookmarkIcon,
   CheckIcon,
   ClockIcon,
+  TrashIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import React, { useContext, useState } from "react";
@@ -12,11 +13,22 @@ import GlobalContext from "../../context/GlobalContext";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 const EventModal = () => {
-  const { setShowEventModal, daySelected, dispatchCalEvent } =
-    useContext(GlobalContext);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [selectedLabel, setSelectedLabel] = useState(labelsClasses[0]);
+  const {
+    setShowEventModal,
+    daySelected,
+    dispatchCalEvent,
+    selectedEvent,
+    setSelectedEvent,
+  } = useContext(GlobalContext);
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  const [description, setDescription] = useState(
+    selectedEvent ? selectedEvent.description : ""
+  );
+  const [selectedLabel, setSelectedLabel] = useState(
+    selectedEvent
+      ? labelsClasses.find((lbl: string) => lbl === selectedEvent.label)
+      : labelsClasses[0]
+  );
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -25,9 +37,14 @@ const EventModal = () => {
       description,
       label: selectedLabel,
       day: daySelected.valueOf(),
-      id: Date.now(),
+      id: selectedEvent ? selectedEvent.id : Date.now(),
     };
-    dispatchCalEvent({ type: "push", payload: calendarEvent });
+    if (selectedEvent) {
+      dispatchCalEvent({ type: "update", payload: calendarEvent });
+    } else {
+      dispatchCalEvent({ type: "push", payload: calendarEvent });
+    }
+    setSelectedEvent(null);
     setShowEventModal(false);
   }
   return (
@@ -35,7 +52,13 @@ const EventModal = () => {
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
         <header className="bg-gray-100 px-4 py-2 flex justify-between items-center">
           <Bars2Icon className="h-6 text-gray-400" />
-          <button onClick={() => setShowEventModal(false)}>
+
+          <button
+            onClick={() => {
+              setSelectedEvent(null);
+              setShowEventModal(false);
+            }}
+          >
             <XMarkIcon className="h-6 text-gray-400" />
           </button>
         </header>
@@ -80,6 +103,17 @@ const EventModal = () => {
           </div>
         </div>
         <footer className="flex justify-end border-t p-3 mt-5">
+          {selectedEvent && (
+            <button
+              className="bg-red-500 hover:bg-red-600 px-6 py-2 rounded text-white mr-2"
+              onClick={() => {
+                dispatchCalEvent({ type: "delete", payload: selectedEvent });
+                setShowEventModal(false);
+              }}
+            >
+              Delete
+            </button>
+          )}
           <button
             type="submit"
             onClick={handleSubmit}

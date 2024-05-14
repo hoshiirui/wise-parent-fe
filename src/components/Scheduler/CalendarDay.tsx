@@ -9,7 +9,7 @@ interface CalendarDayProps {
 
 const CalendarDay = ({ day, rowIndex }: CalendarDayProps) => {
   const [dayEvents, setDayEvents] = useState([]);
-  const { setDaySelected, setShowEventModal, savedEvents } =
+  const { setDaySelected, setShowEventModal, savedEvents, setSelectedEvent } =
     useContext(GlobalContext);
 
   useEffect(() => {
@@ -46,6 +46,7 @@ const CalendarDay = ({ day, rowIndex }: CalendarDayProps) => {
           {dayEvents.map((evt: any, index: number) => (
             <div
               key={index}
+              onClick={() => setSelectedEvent(evt)}
               className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
             >
               {evt.title}

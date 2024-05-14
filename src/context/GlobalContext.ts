@@ -11,6 +11,8 @@ interface GlobalContextInterface {
   setShowEventModal: (status: any) => void;
   dispatchCalEvent: ({ type, payload }: any) => void;
   savedEvents: any;
+  selectedEvent: any;
+  setSelectedEvent: (event: any) => void;
 }
 
 const GlobalContext = React.createContext<GlobalContextInterface>({
@@ -24,6 +26,8 @@ const GlobalContext = React.createContext<GlobalContextInterface>({
   setShowEventModal: () => {},
   dispatchCalEvent: ({ type, payload }) => {},
   savedEvents: [],
+  selectedEvent: null,
+  setSelectedEvent: () => {},
 });
 
 export default GlobalContext;

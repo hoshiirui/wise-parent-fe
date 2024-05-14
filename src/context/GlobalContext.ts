@@ -17,14 +17,14 @@ interface GlobalContextInterface {
 
 const GlobalContext = React.createContext<GlobalContextInterface>({
   monthIndex: 0,
-  setMonthIndex: (index: number) => {},
+  setMonthIndex: () => {},
   smallCalendarMonth: 0,
-  setSmallCalendarMonth: (index: any) => {},
+  setSmallCalendarMonth: () => {},
   daySelected: null,
-  setDaySelected: (day: any) => {},
+  setDaySelected: () => {},
   showEventModal: false,
   setShowEventModal: () => {},
-  dispatchCalEvent: ({ type, payload }) => {},
+  dispatchCalEvent: () => {},
   savedEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {},

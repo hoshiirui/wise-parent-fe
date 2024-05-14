@@ -4,10 +4,9 @@ import {
   BookmarkIcon,
   CheckIcon,
   ClockIcon,
-  TrashIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];

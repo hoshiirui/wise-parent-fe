@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import dayjs from "dayjs";
 

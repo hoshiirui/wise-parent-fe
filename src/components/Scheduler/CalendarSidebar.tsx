@@ -1,4 +1,3 @@
-import React from "react";
 import CreateEventButton from "./CreateEventButton";
 import CalendarSmall from "./CalendarSmall";
 

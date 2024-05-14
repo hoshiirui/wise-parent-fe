@@ -1,5 +1,5 @@
 import { PlusCircleIcon } from "@heroicons/react/16/solid";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
 const CreateEventButton = () => {

@@ -5,11 +5,12 @@ import CalendarHeader from "../components/Scheduler/CalendarHeader";
 import CalendarSidebar from "../components/Scheduler/CalendarSidebar";
 import CalendarMonth from "../components/Scheduler/CalendarMonth";
 import GlobalContext from "../context/GlobalContext";
+import EventModal from "../components/Scheduler/EventModal";
 
 const Schedule = () => {
   console.table(getMonth());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex } = useContext(GlobalContext);
+  const { monthIndex, showEventModal } = useContext(GlobalContext);
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
@@ -21,6 +22,8 @@ const Schedule = () => {
           <div className="my-16 mx-6">testestse</div>
         </div>
       </div>
+      {showEventModal && <EventModal />}
+
       <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">

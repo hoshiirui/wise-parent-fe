@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import GlobalContext from "../../context/GlobalContext";
 
 interface CalendarDayProps {
   day: any;
@@ -7,6 +8,17 @@ interface CalendarDayProps {
 }
 
 const CalendarDay = ({ day, rowIndex }: CalendarDayProps) => {
+  const [dayEvents, setDayEvents] = useState([]);
+  const { setDaySelected, setShowEventModal, savedEvents } =
+    useContext(GlobalContext);
+
+  useEffect(() => {
+    const events = savedEvents.filter(
+      (evt: any) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+    );
+    setDayEvents(events);
+  }, [savedEvents, day]);
+
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
       ? "bg-blue-600 text-white rounded-full w-7"
@@ -24,6 +36,22 @@ const CalendarDay = ({ day, rowIndex }: CalendarDayProps) => {
             {day.format("DD")}
           </p>
         </header>
+        <div
+          className="flex-1 cursor-pointer"
+          onClick={() => {
+            setDaySelected(day);
+            setShowEventModal(true);
+          }}
+        >
+          {dayEvents.map((evt: any, index: number) => (
+            <div
+              key={index}
+              className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
+            >
+              {evt.title}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

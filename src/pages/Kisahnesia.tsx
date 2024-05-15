@@ -6,28 +6,71 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Footer } from "../components/Footer/Footer";
 
-const slideContents = [
-  "Slide 1",
-  "Slide 2",
-  "Slide 3",
-  "Slide 4",
-  "Slide 5",
-  "Slide 6",
-  "Slide 7",
-  "Slide 8",
-  "Slide 9",
-  "Slide 10",
-  // Add more slides as needed
+const storyLists = [
+  {
+    id: 1,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 2,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 3,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 4,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 5,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 6,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 7,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
+  {
+    id: 8,
+    title: "Ascension of The Pearlescent Edelweiss",
+    author: "Amanda Mutiara",
+    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
+    genre: ["keseharian", "mitos"],
+  },
 ];
 
 const tagLists = [
-  "Fabel",
-  "Mitos",
-  "Cerita Rakyat",
-  "Keseharian",
-  "Sage",
-  "Bahasa Indonesia",
-  "Bahasa Inggris",
+  "Fable",
+  "Myth",
+  "Fairytale",
+  "Slice of Life",
+  "Epic or Sage",
 ];
 
 const Kisahnesia = () => {
@@ -40,7 +83,7 @@ const Kisahnesia = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-4xl font-bold text-center mt-12">Kisahnesia</h1>
             <h5 className="text-gray-500 mt-2">
-              Temukan kisah menarik untuk buah hati Anda!
+              Find interesting story for your kids!
             </h5>
             <div className="relative w-2/5 mt-3">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -65,7 +108,7 @@ const Kisahnesia = () => {
               <input
                 type="text"
                 className="bg-white border border-gray-300 text-secondary text-sm  focus:border-primary focus:outline-none block w-full ps-10 p-2.5 rounded-md"
-                placeholder="Cari Cerita"
+                placeholder="Search a Story"
               ></input>
             </div>
             <div className="flex flex-row max-w-5xl gap-3 mt-3">
@@ -82,9 +125,9 @@ const Kisahnesia = () => {
           <div className="border-b border-gray-300 mt-16 mx-32"></div>
           {/* rekomendasi cerita section */}
           <div className="mt-16 px-16">
-            <h2 className="font-bold text-2xl mb-1">Rekomendasi Cerita</h2>
+            <h2 className="font-bold text-2xl mb-1">Recommended Story</h2>
             <p className="text-gray-500 text-md mb-6">
-              Cerita-cerita seru pilihan admin WiseParent
+              WiseParent choices just for you
             </p>
             <Swiper
               spaceBetween={36} // Space between slides (36px)
@@ -93,17 +136,17 @@ const Kisahnesia = () => {
               loop={true} // Enable loop mode
               grabCursor={true} // Enable grab cursor
             >
-              {slideContents.map((slideContent, index) => (
+              {storyLists.map((slideContent, index) => (
                 <SwiperSlide key={index}>
                   {/* Replace with your slide content */}
                   <div>
                     <img src="/img/book.jpg" alt="book_cover" />
                     <div className="px-2 flex flex-col items-center mt-2">
                       <p className="mt-2 text-center text-sm font-bold text-gray-800">
-                        Ascension of The Pearlescent Edelweiss
+                        {slideContent.title}
                       </p>
                       <p className="mt-1 text-xs text-primary500">
-                        {slideContent}
+                        {slideContent.author}
                       </p>
                     </div>
                   </div>
@@ -113,12 +156,12 @@ const Kisahnesia = () => {
           </div>
           {/* cerita lainnya section */}
           <div className="mt-16 px-16">
-            <h2 className="font-bold text-2xl mb-1">Cerita Lainnya</h2>
+            <h2 className="font-bold text-2xl mb-1">Another Story</h2>
             <p className="text-gray-500 text-md mb-6">
-              Petualanganmu dimulai dari sini
+              Your journey starts here
             </p>
             <div className="grid grid-cols-2 gap-8">
-              {slideContents.map((slideContent, index) => (
+              {storyLists.map((slideContent, index) => (
                 <div className="grid grid-cols-7 gap-6" key={index}>
                   <img
                     src="/img/book.jpg"
@@ -126,16 +169,12 @@ const Kisahnesia = () => {
                     className="col-span-2"
                   />
                   <div className="col-span-5 flex flex-col justify-center">
-                    <h3 className="text-lg font-bold">
-                      Ascension of The Pearlescent Edelweiss
-                    </h3>
+                    <h3 className="text-lg font-bold">{slideContent.title}</h3>
                     <p className="text-sm text-primary500 mt-1">
-                      {slideContent}
+                      {slideContent.author}
                     </p>
                     <p className="text-sm text-gray-500 mt-4">
-                      Shira merasakan getaran lembut ponselnya sebagai alarm
-                      berdering, mengingatkannya pada tanggal yang sangat
-                      spesial, 7 September. Ini adalah hari ulang tahunnya...
+                      {slideContent.desc}
                     </p>
                     <div className="flex flex-row gap-2 mt-3">
                       <div className="text-xs px-3 py-1 border border-gray-300 rounded-xl">

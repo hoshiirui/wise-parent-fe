@@ -13,6 +13,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const storyLists = [
     author: "Amanda Mutiara",
     desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
     genre: ["keseharian", "mitos"],
+    imgSrc:"book.jpg"
   },
 ];
 
@@ -140,7 +148,7 @@ const Kisahnesia = () => {
                 <SwiperSlide key={index}>
                   {/* Replace with your slide content */}
                   <div>
-                    <img src="/img/book.jpg" alt="book_cover" />
+                    <img src={`/img/${slideContent.imgSrc}`} alt="book_cover" />
                     <div className="px-2 flex flex-col items-center mt-2">
                       <p className="mt-2 text-center text-sm font-bold text-gray-800">
                         {slideContent.title}
@@ -177,12 +185,11 @@ const Kisahnesia = () => {
                       {slideContent.desc}
                     </p>
                     <div className="flex flex-row gap-2 mt-3">
-                      <div className="text-xs px-3 py-1 border border-gray-300 rounded-xl">
-                        Fabel
+                      {slideContent.genre.map((namaGenre:string, index:number)=> (
+                        <div key={index} className="text-xs px-3 py-1 border border-gray-300 rounded-xl capitalize">
+                        {namaGenre}
                       </div>
-                      <div className="text-xs px-3 py-1 border border-gray-300 rounded-xl">
-                        Fabel
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>

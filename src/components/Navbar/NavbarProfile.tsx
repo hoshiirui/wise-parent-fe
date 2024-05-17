@@ -12,10 +12,6 @@ const navItem = [
     navName: "Profile",
     navHref: "/profile",
   },
-  {
-    navName: "My Courses",
-    navHref: "/courses",
-  },
 ];
 
 export default function NavbarProfile({

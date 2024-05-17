@@ -4,17 +4,17 @@ import { CheckBadgeIcon } from "@heroicons/react/24/outline";
 const data = [
   {
     title: "Namely",
-    description: "Temukan nama-nama indah beserta artinya",
+    description: "Find beautiful names and their meanings",
     slug: "parenting-course-1",
   },
   {
     title: "Kisahnesia",
-    description: "Beragam kisah menarik untuk sang buah hati",
+    description: "Various interesting stories for your little one",
     slug: "kisahnesia",
   },
   {
     title: "Lembar Ioforia",
-    description: "Temukan lembar mewarnai untuk melatih anak Anda",
+    description: "Find coloring sheets to train your child",
     slug: "ioforia",
   },
 ];
@@ -28,7 +28,7 @@ const KidsZone = () => {
           <div className="border border-primary500 flex flex-col items-center rounded-md">
             <h1 className="text-4xl font-bold text-center mt-12">Kids Zone</h1>
             <h5 className="text-gray-500 mt-2 mb-12">
-              Zona bermain untuk buah hati Anda
+             Play zone for your little ones
             </h5>
           </div>
           <div className="grid lg:grid-cols-4 gap-4 mt-6">

@@ -9,35 +9,35 @@ import { Footer } from "../components/Footer/Footer";
 const storyLists = [
   {
     id: 1,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc:"book.jpg"
+    title: "Pinocchio",
+    author: "Collodi Carlo",
+    desc: "in a small Italian village, an old woodcarver named Geppetto crafted a wooden puppet named Pinocchio.",
+    genre: ["Slice of Live"],
+    imgSrc:"pinocchio.png"
   },
   {
     id: 2,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc:"book.jpg"
+    title: "Robin Hood",
+    author: "Paul Creswick",
+    desc: "Once upon a time, in Sherwood Forest, there lived a legendary hero named Robin Hood. He was an outlaw, a skilled archer, and the leader of a band of merry men, including Little John, Friar Tuck, Will Scarlet, and Alan-a-Dale.",
+    genre: ["Folklore"],
+    imgSrc:"robinhood.png"
   },
   {
     id: 3,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc:"book.jpg"
+    title: "Jack and the Beanstalk",
+    author: "Natascha Rosenberg.K",
+    desc: "Once upon a time, there was a poor widow and her son Jack, who lived in a small cottage. They were so poor that their only possession was a cow named Milky-White.",
+    genre: ["Myth"],
+    imgSrc:"jackandthebeantalks.png"
   },
   {
     id: 4,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc:"book.jpg"
+    title: "Three Little Pig",
+    author: "Endar W. & Graceana L.",
+    desc: "A long time ago, there lived three little pigs that wanted to build their own house. The first little pig built his house with dried straw and the second little pig built his house with sticks.",
+    genre: ["Fable"],
+    imgSrc:"threelittlepig.png"
   },
   {
     id: 5,
@@ -79,6 +79,7 @@ const tagLists = [
   "Fairytale",
   "Slice of Life",
   "Epic or Sage",
+  "Folklore",
 ];
 
 const Kisahnesia = () => {

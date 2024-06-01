@@ -15,6 +15,7 @@ import ContextWrapper from "./context/ContextWrapper.tsx";
 import KidsZone from "./pages/KidsZone.tsx";
 import ScheduleHome from "./pages/ScheduleHome.tsx";
 import Kisahnesia from "./pages/Kisahnesia.tsx";
+import StoryDetails from "./pages/StoryDetails.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/register" element={<Register />} />
           <Route path="/schedule" element={<ScheduleHome />} />
           <Route path="/kidszone/kisahnesia" element={<Kisahnesia />} />
+          <Route path="/kidszone/kisahnesia/:slug" element={<StoryDetails />} />
           <Route path="/schedule/area15" element={<Schedule />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/kidszone" element={<KidsZone />} />

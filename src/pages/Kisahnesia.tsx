@@ -204,36 +204,41 @@ const Kisahnesia = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-8">
                   {storiesData.map((slideContent: any, index) => (
-                    <div className="grid grid-cols-7 gap-6" key={index}>
-                      <img
-                        src={`http://127.0.0.1:8000/storage/${slideContent.thumbnail}`}
-                        alt="book_cover"
-                        className="col-span-2"
-                      />
-                      <div className="col-span-5 flex flex-col justify-center">
-                        <h3 className="text-lg font-bold">
-                          {slideContent.title}
-                        </h3>
-                        <p className="text-sm text-primary500 mt-1">
-                          {slideContent.writer}
-                        </p>
-                        <p className="text-sm text-gray-500 mt-4">
-                          {slideContent.content}
-                        </p>
-                        <div className="flex flex-row gap-2 mt-3">
-                          {slideContent.tags
-                            .split(",")
-                            .map((namaGenre: string, index: number) => (
-                              <div
-                                key={index}
-                                className="text-xs px-3 py-1 border border-gray-300 rounded-xl capitalize"
-                              >
-                                {namaGenre}
-                              </div>
-                            ))}
+                    <a
+                      href={`/kidszone/kisahnesia/${slideContent.slug}`}
+                      key={index}
+                    >
+                      <div className="grid grid-cols-7 gap-6">
+                        <img
+                          src={`http://127.0.0.1:8000/storage/${slideContent.thumbnail}`}
+                          alt="book_cover"
+                          className="col-span-2"
+                        />
+                        <div className="col-span-5 flex flex-col justify-center">
+                          <h3 className="text-lg font-bold">
+                            {slideContent.title}
+                          </h3>
+                          <p className="text-sm text-primary500 mt-1">
+                            {slideContent.writer}
+                          </p>
+                          <p className="text-sm text-gray-500 mt-4">
+                            {slideContent.content}
+                          </p>
+                          <div className="flex flex-row gap-2 mt-3">
+                            {slideContent.tags
+                              .split(",")
+                              .map((namaGenre: string, index: number) => (
+                                <div
+                                  key={index}
+                                  className="text-xs px-3 py-1 border border-gray-300 rounded-xl capitalize"
+                                >
+                                  {namaGenre}
+                                </div>
+                              ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>

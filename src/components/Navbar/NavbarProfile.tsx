@@ -31,6 +31,7 @@ export default function NavbarProfile({
 
   const handleLogOut = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
 
     navigate("/login");
   };

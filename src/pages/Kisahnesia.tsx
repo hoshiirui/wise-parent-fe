@@ -87,16 +87,27 @@ const tagLists = [
 
 const Kisahnesia = () => {
   const [storiesData, setStoriesData] = useState([]);
+  const [recommendedStoryData, setRecommendedStoryData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const { data: responseStories } = await axios.get(
-          "http://127.0.0.1:8000/api/v1/kisahnesia/stories"
+        const { data: responseStories } = await axios.post(
+          "http://127.0.0.1:8000/api/v1/kisahnesia/stories",
+          {
+            sort: "title",
+          }
         );
-        setStoriesData(responseStories.story);
+        const { data: responseRecommendedStories } = await axios.post(
+          "http://127.0.0.1:8000/api/v1/kisahnesia/stories",
+          {
+            sort: "created_at",
+          }
+        );
+        setRecommendedStoryData(responseRecommendedStories.story.data);
+        setStoriesData(responseStories.story.data);
       } catch (error: any) {
         console.error(error.message);
       }
@@ -175,25 +186,27 @@ const Kisahnesia = () => {
                   loop={true} // Enable loop mode
                   grabCursor={true} // Enable grab cursor
                 >
-                  {storyLists.map((slideContent, index) => (
-                    <SwiperSlide key={index}>
-                      {/* Replace with your slide content */}
-                      <div>
-                        <img
-                          src={`/img/${slideContent.imgSrc}`}
-                          alt="book_cover"
-                        />
-                        <div className="px-2 flex flex-col items-center mt-2">
-                          <p className="mt-2 text-center text-sm font-bold text-gray-800">
-                            {slideContent.title}
-                          </p>
-                          <p className="mt-1 text-xs text-primary500">
-                            {slideContent.author}
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
+                  {recommendedStoryData.map(
+                    (slideContent: any, index: number) => (
+                      <SwiperSlide key={index}>
+                        {/* Replace with your slide content */}
+                        <a href={`/kidszone/kisahnesia/${slideContent.slug}`}>
+                          <img
+                            src={`http://127.0.0.1:8000/storage/${slideContent.thumbnail}`}
+                            alt="book_cover"
+                          />
+                          <div className="px-2 flex flex-col items-center mt-2">
+                            <p className="mt-2 text-center text-sm font-bold text-gray-800">
+                              {slideContent.title}
+                            </p>
+                            <p className="mt-1 text-xs text-primary500 text-center">
+                              {slideContent.writer}
+                            </p>
+                          </div>
+                        </a>
+                      </SwiperSlide>
+                    )
+                  )}
                 </Swiper>
               </div>
               {/* cerita lainnya section */}
@@ -222,7 +235,7 @@ const Kisahnesia = () => {
                             {slideContent.writer}
                           </p>
                           <p className="text-sm text-gray-500 mt-4">
-                            {slideContent.content}
+                            {slideContent.description}
                           </p>
                           <div className="flex flex-row gap-2 mt-3">
                             {slideContent.tags

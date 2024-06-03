@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import DefaultLoading from "../components/Loading/DefaultLoading";
+import DOMPurify from "dompurify";
 
 const StoryDetails = () => {
   const [text, setText] = useState("");
@@ -113,107 +114,11 @@ const StoryDetails = () => {
                       alt="artikel"
                       className="mt-4 w-[50%]"
                     />
-                    <p className="my-12 text-lg text-gray-700">
-                      {storyData.content}
-                    </p>
-                    <p className="mb-6 text-lg text-gray-700">
-                      In fact, Mother, how well the brain develops depends on
-                      many factors other than genes, namely:
-                    </p>
-                    <ul className="mb-12">
-                      <li className="text-lg mb-2 text-gray-700">
-                        - Nutrition that begins during pregnancy
-                      </li>
-                      <li className="text-lg mb-2 text-gray-700">
-                        - Exposure to toxins or infections
-                      </li>
-                      <li className="text-lg mb-2 text-gray-700">
-                        - Children's experiences with other people
-                      </li>
-                      <li className="text-lg  text-gray-700">
-                        - Parenting patterns.
-                      </li>
-                    </ul>
-                    <p className="mb-12 text-lg text-gray-700">
-                      Nutrition is obtained from nutritious foods and drinks
-                      Mother has consumed it since she was pregnant with her
-                      baby. Starting from vegetables, animal and vegetable side
-                      dishes, fruit and milk which supports brain development.
-                      In this article, it will be discusses some of the benefits
-                      of milk for children's brain development.
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      Milk contains calcium, vitamin D, protein, vitamin A, and
-                      zinc which is all important for growth and development of
-                      the baby. Milk also contains fat is a source of calories
-                      for your little one. Plus, milk which is fortified with
-                      micronutrients and non-fatty acids Polyunsaturated fats
-                      like omega 3 are good for development Baby's cognitive.
-                    </p>
-                    <p className="mb-6 text-3xl leading-snug font-bold text-gray-700">
-                      The nutritional content in milk is good for children's
-                      brains
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      As mentioned earlier, milk contains a lot of it nutrition
-                      to support brain function. So what are the contents? the
-                      nutrients that need to be in milk for your little one help
-                      the development of brain function?
-                    </p>
-                    <p className="mb-6 text-3xl leading-snug font-bold text-gray-700">
-                      1. Calcium
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      One of the important nutrients contained in milk and
-                      Calcium is important for your baby's brain health. Calcium
-                      is not only important for bone health, however also helps
-                      brain development. The body needs calcium so that muscles
-                      can move and help nerves carry messages from the brain to
-                      the whole body. Calcium also helps vessels blood
-                      circulates blood throughout the body and helps releases
-                      hormones that are important for the body.
-                    </p>
-                    <p className="mb-6 text-3xl leading-snug font-bold text-gray-700">
-                      2. Protein
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      Central nervous system, organs that include the brain and
-                      marrow spine, requires a certain amount of amino acids
-                      found in protein foods. Amino acids such as tryptophan,
-                      tyrosine, histidine and arginine are required in order the
-                      brain can function normally.
-                    </p>
-                    <p className="mb-6 text-3xl leading-snug font-bold text-gray-700">
-                      3. Omega-3 fatty acids
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      As mentioned earlier, milk is fortified Polyunsaturated
-                      fatty acids (PUFA) have a good effect on children's
-                      cognitive function. Well, one type of PUFA that can be
-                      found in milk is omega 3. Omega 3 is an acid
-                      Polyunsaturated fats are important for cognitive
-                      performance in all stages of life. Eicosapentaenoic Acid
-                      (EPA), Docosahexaenoic Acid (DHA), and Alpha-linolenic
-                      Acid (ALA) are omega 3 and all three are essential for
-                      function brain. Research shows, consuming omega-3 improves
-                      cognitive function, learning, memory, and improve blood
-                      flow in the brain.
-                    </p>
-                    <p className="mb-6 text-3xl leading-snug font-bold text-gray-700">
-                      4. Vitamin D
-                    </p>
-                    <p className="mb-12 text-lg text-gray-700">
-                      Vitamin D is very important for us because Vitamin D helps
-                      regulation of calcium in the body so that the body
-                      functions normally and is also useful for bone formation.
-                      Besides that, Vitamin D also plays an important role in
-                      brain and nerve development. Mother can get vitamins D by
-                      sunbathing for 10-15 minutes in the sun rising until 9 am
-                      or from 3 pm until Sunset. Apart from that, Mother also
-                      gets it Vitamin D from foods such as fish, red meat,
-                      chicken or beef liver, egg yolk and similar food products
-                      Fortified like formula milk.
-                    </p>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: storyData.content,
+                      }}
+                    />
                   </div>
                   <div className="col-span-4 flex flex-col">
                     <div className="flex flex-col">

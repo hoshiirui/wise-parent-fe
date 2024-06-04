@@ -16,6 +16,7 @@ const StoryDetails = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        console.log(slug);
         const { data: responseStory } = await axios.get(
           `http://127.0.0.1:8000/api/v1/kisahnesia/story/${slug}`
         );

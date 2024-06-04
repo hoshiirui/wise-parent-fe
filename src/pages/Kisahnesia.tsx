@@ -8,115 +8,76 @@ import { Footer } from "../components/Footer/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DefaultLoading from "../components/Loading/DefaultLoading";
-
-const storyLists = [
-  {
-    id: 1,
-    title: "Pinocchio",
-    author: "Collodi Carlo",
-    desc: "in a small Italian village, an old woodcarver named Geppetto crafted a wooden puppet named Pinocchio.",
-    genre: ["Slice of Live"],
-    imgSrc: "pinocchio.png",
-  },
-  {
-    id: 2,
-    title: "Robin Hood",
-    author: "Paul Creswick",
-    desc: "Once upon a time, in Sherwood Forest, there lived a legendary hero named Robin Hood. He was an outlaw, a skilled archer, and the leader of a band of merry men, including Little John, Friar Tuck, Will Scarlet, and Alan-a-Dale.",
-    genre: ["Folklore"],
-    imgSrc: "robinhood.png",
-  },
-  {
-    id: 3,
-    title: "Jack and the Beanstalk",
-    author: "Natascha Rosenberg.K",
-    desc: "Once upon a time, there was a poor widow and her son Jack, who lived in a small cottage. They were so poor that their only possession was a cow named Milky-White.",
-    genre: ["Myth"],
-    imgSrc: "jackandthebeantalks.png",
-  },
-  {
-    id: 4,
-    title: "Three Little Pig",
-    author: "Endar W. & Graceana L.",
-    desc: "A long time ago, there lived three little pigs that wanted to build their own house. The first little pig built his house with dried straw and the second little pig built his house with sticks.",
-    genre: ["Fable"],
-    imgSrc: "threelittlepig.png",
-  },
-  {
-    id: 5,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc: "book.jpg",
-  },
-  {
-    id: 6,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc: "book.jpg",
-  },
-  {
-    id: 7,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc: "book.jpg",
-  },
-  {
-    id: 8,
-    title: "Ascension of The Pearlescent Edelweiss",
-    author: "Amanda Mutiara",
-    desc: "Shira merasakan getaran lembut ponselnya sebagai alarm berdering, mengingatkannya pada tanggal yang sangat spesial, 7 September. Ini adalah hari ulang tahunnya...",
-    genre: ["keseharian", "mitos"],
-    imgSrc: "book.jpg",
-  },
-];
-
-const tagLists = [
-  "Fable",
-  "Myth",
-  "Fairytale",
-  "Slice of Life",
-  "Epic or Sage",
-  "Folklore",
-];
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Kisahnesia = () => {
   const [storiesData, setStoriesData] = useState([]);
   const [recommendedStoryData, setRecommendedStoryData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchBar, setSearchBar] = useState<string>();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [tagsData, setTagsData] = useState([]);
+  const [selectedTags, setSelectedTags] = useState(searchParams.get("tags"));
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      console.log(searchParams);
+      const page = searchParams.get("page");
+      const search = searchParams.get("search");
+      const tags = searchParams.get("tags");
+      console.log(page + " - " + search);
+
+      const { data: responseStories } = await axios.get(
+        `http://127.0.0.1:8000/api/v1/kisahnesia/stories${
+          page || search || tags ? "?" : ""
+        }${
+          page
+            ? `page=${page}`
+            : search
+            ? `search=${search}`
+            : tags
+            ? `tags=${tags}`
+            : ""
+        }${
+          page && search
+            ? `&search=${search}`
+            : search && tags
+            ? `&tags=${tags}`
+            : ""
+        }`
+      );
+      setStoriesData(responseStories.story.data);
+
+      const { data: responseRecommendedStories } = await axios.get(
+        "http://127.0.0.1:8000/api/v1/kisahnesia/stories?sort=created_at&by=desc"
+      );
+      const { data: responseTags } = await axios.get(
+        "http://127.0.0.1:8000/api/v1/tags?type=kisahnesia"
+      );
+      setTagsData(responseTags.tags);
+      setRecommendedStoryData(responseRecommendedStories.story.data);
+    } catch (error: any) {
+      console.error(error.message);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const { data: responseStories } = await axios.post(
-          "http://127.0.0.1:8000/api/v1/kisahnesia/stories",
-          {
-            sort: "title",
-          }
-        );
-        const { data: responseRecommendedStories } = await axios.post(
-          "http://127.0.0.1:8000/api/v1/kisahnesia/stories",
-          {
-            sort: "created_at",
-          }
-        );
-        setRecommendedStoryData(responseRecommendedStories.story.data);
-        setStoriesData(responseStories.story.data);
-      } catch (error: any) {
-        console.error(error.message);
-      }
-      setLoading(false);
-    };
     fetchData();
-  }, []);
+  }, [searchParams]);
 
-  console.log(storiesData);
+  const handleSearchSubmit = (e: any) => {
+    if (e.key === "Enter") {
+      setSearchParams((prev) => ({ ...prev, search: searchBar }));
+      setSelectedTags("");
+      navigate(`?search=${searchBar}`);
+    }
+  };
+
+  // console.log(tagsData);
+  console.log(selectedTags);
 
   return (
     <>
@@ -159,62 +120,98 @@ const Kisahnesia = () => {
                     type="text"
                     className="bg-white border border-gray-300 text-secondary text-sm  focus:border-primary focus:outline-none block w-full ps-10 p-2.5 rounded-md"
                     placeholder="Search a Story"
+                    value={searchBar}
+                    onChange={(e) => setSearchBar(e.target.value)}
+                    onKeyUp={handleSearchSubmit}
                   ></input>
                 </div>
                 <div className="flex flex-row max-w-5xl gap-3 mt-3">
-                  {tagLists.map((tag: string, index: number) => (
+                  {tagsData.map((tag: any, index: number) => (
                     <span
-                      className="bg-white hover:bg-primary600 hover:text-white translation-all duration-500 hover:cursor-pointer px-4 py-2 border border-gray-300 text-xs rounded-lg"
+                      className={`${
+                        selectedTags?.toLowerCase() === tag.name.toLowerCase()
+                          ? "bg-primary600 text-white"
+                          : "bg-white border border-gray-300"
+                      }  hover:bg-primary600 hover:text-white translation-all duration-500 hover:cursor-pointer px-4 py-2  text-xs rounded-lg`}
                       key={index}
+                      onClick={() => {
+                        setSelectedTags(tag.name);
+                        navigate(`?tags=${tag.name}`);
+                      }}
                     >
-                      {tag}
+                      {tag.name}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="border-b border-gray-300 mt-16 mx-32"></div>
               {/* rekomendasi cerita section */}
-              <div className="mt-16 px-16">
-                <h2 className="font-bold text-2xl mb-1">Recommended Story</h2>
-                <p className="text-gray-500 text-md mb-6">
-                  WiseParent choices just for you
-                </p>
-                <Swiper
-                  spaceBetween={36} // Space between slides (36px)
-                  slidesPerView={5} // 5 slides per view
-                  slidesPerGroup={1} // 1 slide per group
-                  loop={true} // Enable loop mode
-                  grabCursor={true} // Enable grab cursor
-                >
-                  {recommendedStoryData.map(
-                    (slideContent: any, index: number) => (
-                      <SwiperSlide key={index}>
-                        {/* Replace with your slide content */}
-                        <a href={`/kidszone/kisahnesia/${slideContent.slug}`}>
-                          <img
-                            src={`http://127.0.0.1:8000/storage/${slideContent.thumbnail}`}
-                            alt="book_cover"
-                          />
-                          <div className="px-2 flex flex-col items-center mt-2">
-                            <p className="mt-2 text-center text-sm font-bold text-gray-800">
-                              {slideContent.title}
-                            </p>
-                            <p className="mt-1 text-xs text-primary500 text-center">
-                              {slideContent.writer}
-                            </p>
-                          </div>
-                        </a>
-                      </SwiperSlide>
-                    )
-                  )}
-                </Swiper>
-              </div>
+              {!searchParams.get("search") && !searchParams.get("tags") && (
+                <div className="mt-16 px-16">
+                  <h2 className="font-bold text-2xl mb-1">Recommended Story</h2>
+                  <p className="text-gray-500 text-md mb-6">
+                    WiseParent choices just for you
+                  </p>
+                  <Swiper
+                    spaceBetween={36} // Space between slides (36px)
+                    slidesPerView={5} // 5 slides per view
+                    slidesPerGroup={1} // 1 slide per group
+                    loop={true} // Enable loop mode
+                    grabCursor={true} // Enable grab cursor
+                  >
+                    {recommendedStoryData.map(
+                      (slideContent: any, index: number) => (
+                        <SwiperSlide key={index}>
+                          {/* Replace with your slide content */}
+                          <a href={`/kidszone/kisahnesia/${slideContent.slug}`}>
+                            <img
+                              src={`http://127.0.0.1:8000/storage/${slideContent.thumbnail}`}
+                              alt="book_cover"
+                            />
+                            <div className="px-2 flex flex-col items-center mt-2">
+                              <p className="mt-2 text-center text-sm font-bold text-gray-800">
+                                {slideContent.title}
+                              </p>
+                              <p className="mt-1 text-xs text-primary500 text-center">
+                                {slideContent.writer}
+                              </p>
+                            </div>
+                          </a>
+                        </SwiperSlide>
+                      )
+                    )}
+                  </Swiper>
+                </div>
+              )}
+
               {/* cerita lainnya section */}
               <div className="mt-16 px-16">
-                <h2 className="font-bold text-2xl mb-1">Another Story</h2>
-                <p className="text-gray-500 text-md mb-6">
-                  Your journey starts here
-                </p>
+                {searchParams.get("search") || searchParams.get("tags") ? (
+                  <>
+                    <h2 className="font-bold text-2xl mb-1">
+                      Search Result for "
+                      {searchParams.get("search") && searchParams.get("tags")
+                        ? `${searchParams.get("search")} in ${searchParams.get(
+                            "tags"
+                          )}`
+                        : searchParams.get("search")
+                        ? `${searchParams.get("search")}`
+                        : `${searchParams.get("tags")} Stories`}
+                      "
+                    </h2>{" "}
+                    <p className="text-gray-500 text-md mb-6">
+                      {Object.keys(storiesData).length} results found
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="font-bold text-2xl mb-1">Another Story</h2>
+                    <p className="text-gray-500 text-md mb-6">
+                      Your journey starts here
+                    </p>
+                  </>
+                )}
+
                 <div className="grid grid-cols-2 gap-8">
                   {storiesData.map((slideContent: any, index) => (
                     <a
